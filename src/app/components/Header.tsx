@@ -22,7 +22,7 @@ type HeaderProps = {
 };
 
 const announcementMessages = [
-  "🇸🇬 Singapore's home for tech gadgets, audio & lifestyle gear",
+  "🇲🇾 Malaysia's home for tech gadgets, audio & lifestyle gear",
   "⚡ Be The First To Get What's Next",
   "🔥 Latest of the Latest",
 ];
@@ -38,25 +38,25 @@ export function Header({ onNavToProducts, onNavToHome, onNavToBrands, onNavToCat
 
   const notificationFeed = [
     {
-      icon: '🔔',
-      label: 'Just Dropped',
-      title: 'Hohem iSteady MT3 Pro',
-      sub: 'SGD 639 · View now →',
-      productHandle: 'hohem-isteady-mt3-pro-and-mt3-pro-kit',
-    },
-    {
-      icon: '🔥',
-      label: 'Deal · 30% Off',
-      title: 'Skullcandy Crusher 540 Active',
-      sub: 'SGD 219.90 · Shop now →',
-      productHandle: 'skullcandy-crusher-540-active-wireless-sensory-bass-headphone',
-    },
-    {
       icon: '👑',
       label: 'FOST Rewards',
       title: 'Log in as a FOST member',
       sub: 'Unlock exclusive FOST prices →',
       isFost: true,
+    },
+    {
+      icon: '🔥',
+      label: 'Deal · 31% Off',
+      title: 'Sennheiser ACCENTUM Plus Wireless',
+      sub: 'RM 899 · Shop now →',
+      productHandle: 'accentum-plus-wireless',
+    },
+    {
+      icon: '🔥',
+      label: 'Deal · 19% Off',
+      title: 'Theragun PRO Plus Percussive Massage Device',
+      sub: 'RM 2899 · Shop now →',
+      productHandle: 'theragun-pro-plus-6th-generation',
     },
   ];
 
@@ -484,11 +484,11 @@ export function Header({ onNavToProducts, onNavToHome, onNavToBrands, onNavToCat
                     </div>
                     {Boolean(user) ? (
                       <div className="flex flex-col items-end shrink-0">
-                        <span className="text-sm font-bold text-[#F16C10]">SGD {getFostPrice(product.price).toFixed(2)}</span>
-                        <span className="text-[10px] text-neutral-400 line-through">SGD {product.price.toFixed(2)}</span>
+                        <span className="text-sm font-bold text-[#F16C10]">RM {getFostPrice(product.price).toFixed(2)}</span>
+                        <span className="text-[10px] text-neutral-400 line-through">RM {product.price.toFixed(2)}</span>
                       </div>
                     ) : (
-                      <span className="text-sm font-bold text-black shrink-0">SGD {product.price.toFixed(2)}</span>
+                      <span className="text-sm font-bold text-black shrink-0">RM {product.price.toFixed(2)}</span>
                     )}
                   </button>
                 ))}
