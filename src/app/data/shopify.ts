@@ -1,8 +1,8 @@
 // ─── SHOPIFY STOREFRONT API ───────────────────────────────────────────────────
 // Using the Storefront API to fetch products, collections, and handle cart/checkout
 
-const SHOPIFY_STORE_DOMAIN = 'outdoor-sports-travel.myshopify.com';
-const SHOPIFY_STOREFRONT_TOKEN = '911a71509040b5d14a4095a3e712b4b6';
+const SHOPIFY_STORE_DOMAIN = '3e43e4-81.myshopify.com';
+const SHOPIFY_STOREFRONT_TOKEN = '20057c94117d9205a670492792aaa6aa';
 const SHOPIFY_API_VERSION = '2024-04';
 
 const STOREFRONT_API_URL = `https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
