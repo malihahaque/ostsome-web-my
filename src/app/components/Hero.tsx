@@ -6,7 +6,7 @@ import sennheiserBanner from "../../imports/Sennheiser Banner.png";
 import skullcandyBanner from "../../imports/Skullcandy Banner.png";
 import therabodyBanner from "../../imports/Therabody Banner.png";
 
-const banners = [matadorBanner, sennheiserBanner, skullcandyBanner, therabodyBanner];
+const banners = [therabodyBanner, matadorBanner, sennheiserBanner, skullcandyBanner];
 
 type HeroProps = {
   onNavToAllProducts: () => void;
@@ -30,10 +30,10 @@ export function Hero({
     onNavToAllProducts,
   ];
   const bannerLabels = [
+    "Therabody",
     "Matador",
     "Sennheiser",
     "Skullcandy",
-    "Therabody",
   ];
 
   const goToSlide = (index: number) => setCurrentSlide(index);
