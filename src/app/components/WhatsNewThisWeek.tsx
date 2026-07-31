@@ -4,6 +4,11 @@ import type { Product } from '../data/products';
 import { useAuth } from './AuthContext';
 import { getFostPrice } from '../data/pricing';
 import { useFlashSaleActive, getFlashPrice } from '../data/flashSale';
+import hd505Img from '../../imports/Sennheiser HD 505 Copper Edition Audiophile Headphones.webp';
+import theragunImg from '../../imports/Therabody Theragun™ PRO Plus Percussive Massage Device.avif';
+import matadorImg from '../../imports/Matador Backpack.webp';
+import skullcandyImg from '../../imports/Skullcandy headphones.webp';
+import therafaceImg from '../../imports/therabody TheraFace Hot and Cold Rings.jpeg';
 
 const featured = [
   { handle: 'hd-505-copper', label: 'New Arrival', labelIcon: Zap, labelColor: 'bg-[#F16C10]' },
@@ -12,6 +17,15 @@ const featured = [
   { handle: 'crusher-anc-2', label: 'Just Dropped', labelIcon: Sparkles, labelColor: 'bg-cyan-500' },
   { handle: 'theraface-hot-and-cold-rings-1', label: 'Staff Pick', labelIcon: Star, labelColor: 'bg-amber-500' },
 ];
+
+// Local lifestyle image overrides, keyed by handle
+const lifestyleImages: Record<string, string> = {
+  'hd-505-copper': hd505Img,
+  'theragun-pro-plus-6th-generation': theragunImg,
+  'beast28-ultralight-technical-backpack': matadorImg,
+  'crusher-anc-2': skullcandyImg,
+  'theraface-hot-and-cold-rings-1': therafaceImg,
+};
 
 type FeaturedProduct = Product & { label: string; labelIcon: React.ElementType; labelColor: string };
 
@@ -74,7 +88,7 @@ export function WhatsNewThisWeek({ onShopAll, onSelectProduct }: { onShopAll?: (
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {featuredProducts.slice(0, 3).map((product, i) => {
             const LabelIcon = product.labelIcon;
-            const imgSrc = product.images[0];
+            const imgSrc = lifestyleImages[product.handle] ?? product.images[0];
             const isThird = i === 2;
             return (
               <div
@@ -86,7 +100,7 @@ export function WhatsNewThisWeek({ onShopAll, onSelectProduct }: { onShopAll?: (
                   <img
                     src={imgSrc}
                     alt={product.title}
-                    className={`w-full h-full object-contain p-4 md:p-6 group-hover:scale-105 transition duration-500`}
+                    className="w-full h-full object-cover [image-rendering:auto] group-hover:scale-105 transition duration-500"
                     onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80'; }}
                   />
                   <div className={`absolute top-2 left-2 md:top-4 md:left-4 ${product.labelColor} text-white px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-1 md:gap-1.5`}>
@@ -130,7 +144,7 @@ export function WhatsNewThisWeek({ onShopAll, onSelectProduct }: { onShopAll?: (
         <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6 mt-3 md:mt-6">
           {featuredProducts.slice(3).map(product => {
             const LabelIcon = product.labelIcon;
-            const imgSrc = product.images[0];
+            const imgSrc = lifestyleImages[product.handle] ?? product.images[0];
             return (
               <div
                 key={product.handle}
@@ -142,7 +156,7 @@ export function WhatsNewThisWeek({ onShopAll, onSelectProduct }: { onShopAll?: (
                     <img
                       src={imgSrc}
                       alt={product.title}
-                      className="w-full h-full object-contain p-4 md:p-6 group-hover:scale-105 transition duration-500"
+                      className="w-full h-full object-cover [image-rendering:auto] group-hover:scale-105 transition duration-500"
                       onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80'; }}
                     />
                     <div className={`absolute top-2 left-2 md:top-4 md:left-4 ${product.labelColor} text-white px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[10px] md:text-xs font-bold flex items-center gap-1 md:gap-1.5`}>
