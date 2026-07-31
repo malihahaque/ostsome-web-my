@@ -8,7 +8,7 @@ const story = {
   description:
     "Just months after launching in Singapore, demand from across the Causeway was impossible to ignore. OSTSOME Malaysia became StreamCast Asia's first step beyond its home market—same curation philosophy, same community of enthusiasts, a new home for the same obsession with getting it first. Discover the latest technology, return for upgrades, repairs, or simply to see what's just arrived. Join our events, talks, and hands-on experiences where the community comes alive. And if you're a FOST member? Every interaction becomes even more rewarding. This is tech, done right.",
   image:
-    "https://images.unsplash.com/photo-1508062878650-88b52897f298?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxLdWFsYSUyMEx1bXB1ciUyMHR3aW4lMjB0b3dlcnMlMjBuaWdodHxlbnwxfHx8fDE3Nzk2OTE3MzF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    "https://images.unsplash.com/photo-1780342726315-9fda9110450d?fm=jpg&q=60&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0"
 };
 
 export function OurStory() {
