@@ -41,7 +41,7 @@ export function LaunchExclusive({ onSelectProduct, onViewAll }: Props) {
             </p>
           </div>
           <div className="hidden md:flex flex-col items-end text-right shrink-0 ml-6">
-            <span className="text-4xl font-black text-[#F16C10]">Up to 27%</span>
+            <span className="text-4xl font-black text-[#F16C10]">Up to 5%</span>
             <span className="text-xs text-neutral-400 uppercase tracking-widest">Early Bird Off</span>
             {onViewAll && (
               <button
@@ -85,13 +85,13 @@ export function LaunchExclusive({ onSelectProduct, onViewAll }: Props) {
                   <h3 className="text-xs md:text-sm font-bold text-black line-clamp-2 mb-2">{product.title}</h3>
                   {isFostMember ? (
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-base md:text-lg font-black text-[#F16C10]">SGD {getFostPrice(deal.promo).toFixed(2)}</span>
-                      <span className="text-xs text-neutral-400 line-through">SGD {deal.promo.toFixed(2)}</span>
+                      <span className="text-base md:text-lg font-black text-[#F16C10]">RM {getFostPrice(deal.promo).toFixed(2)}</span>
+                      <span className="text-xs text-neutral-400 line-through">RM {deal.promo.toFixed(2)}</span>
                     </div>
                   ) : (
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-base md:text-lg font-black text-black">SGD {deal.promo.toFixed(2)}</span>
-                      <span className="text-xs text-neutral-400 line-through">SGD {deal.srp.toFixed(2)}</span>
+                      <span className="text-base md:text-lg font-black text-black">RM {deal.promo.toFixed(2)}</span>
+                      <span className="text-xs text-neutral-400 line-through">RM {deal.srp.toFixed(2)}</span>
                     </div>
                   )}
                 </div>

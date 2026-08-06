@@ -52,7 +52,7 @@ export function LaunchExclusivePage({ onBack, onSelectProduct, onJoinFost }: Pro
             <div className="text-left md:text-right shrink-0">
               <div className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Early Bird Off</div>
               <div className="text-6xl md:text-7xl font-black text-[#F16C10] leading-none">Up to</div>
-              <div className="text-6xl md:text-7xl font-black text-white leading-none">27%</div>
+              <div className="text-6xl md:text-7xl font-black text-white leading-none">5%</div>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export function LaunchExclusivePage({ onBack, onSelectProduct, onJoinFost }: Pro
       {/* Disclaimer */}
       <div className="bg-[#FFF4EC] border-b border-orange-100 py-2 px-4 text-center">
         <p className="text-xs text-[#F16C10] font-medium">
-          ⏱ Launch pricing is for a limited time only. While stocks last. All prices include GST.
+          ⏱ Launch pricing is for a limited time only. While stocks last. All prices include SST.
         </p>
       </div>
 
@@ -106,18 +106,18 @@ export function LaunchExclusivePage({ onBack, onSelectProduct, onJoinFost }: Pro
                     {isFostMember ? (
                       <>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-base font-black text-[#F16C10]">SGD {getFostPrice(deal.promo).toFixed(2)}</span>
-                          <span className="text-xs text-neutral-400 line-through">SGD {deal.promo.toFixed(2)}</span>
+                          <span className="text-base font-black text-[#F16C10]">RM {getFostPrice(deal.promo).toFixed(2)}</span>
+                          <span className="text-xs text-neutral-400 line-through">RM {deal.promo.toFixed(2)}</span>
                         </div>
-                        <p className="text-[10px] text-green-600 font-semibold mt-0.5">You save SGD {(deal.srp - getFostPrice(deal.promo)).toFixed(2)}</p>
+                        <p className="text-[10px] text-green-600 font-semibold mt-0.5">You save RM {(deal.srp - getFostPrice(deal.promo)).toFixed(2)}</p>
                       </>
                     ) : (
                       <>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-base font-black text-black">SGD {deal.promo.toFixed(2)}</span>
-                          <span className="text-xs text-neutral-400 line-through">SGD {deal.srp.toFixed(2)}</span>
+                          <span className="text-base font-black text-black">RM {deal.promo.toFixed(2)}</span>
+                          <span className="text-xs text-neutral-400 line-through">RM {deal.srp.toFixed(2)}</span>
                         </div>
-                        <p className="text-[10px] text-green-600 font-semibold mt-0.5">You save SGD {saving}</p>
+                        <p className="text-[10px] text-green-600 font-semibold mt-0.5">You save RM {saving}</p>
                       </>
                     )}
                   </div>
