@@ -1,8 +1,8 @@
 import { Crown, Tag, Zap, Users, Gift, CalendarHeart, Heart } from 'lucide-react';
-import obsbotFOST from '../../imports/obsbotFOST.png';
-import kandaoFOST from '../../imports/kandaoFOST.png';
-import skullcandyFOST from '../../imports/skullcandyFOST.png';
-import layoutImg from '../../imports/layout.png';
+import sennheiserFOST from '../../imports/Sennheiser FOST.png';
+import firstAccessFOST from '../../imports/First Access FOST.png';
+import newSeasonFOST from '../../imports/New Season FOST.png';
+import layoutImg from '../../imports/Layout FOST.png';
 
 const perks = [
   { icon: Tag, title: 'Member-only pricing', description: 'Unlock exclusive prices on selected products.' },
@@ -74,11 +74,11 @@ export function FostMembership({ onJoin, onLearnMore, onLogin }: { onJoin?: () =
           {/* RIGHT */}
           <div className="relative" style={{ height: '720px' }}>
 
-            {/* OBSBOT photo — narrower so person shows on right side */}
+            {/* Sennheiser photo — narrower so person shows on right side */}
             <div className="absolute top-0 left-0 rounded-2xl overflow-hidden shadow-lg" style={{ width: '50%', zIndex: 1 }}>
               <img
-                src={obsbotFOST}
-                alt="OBSBOT"
+                src={sennheiserFOST}
+                alt="Sennheiser HD 620S"
                 className="w-full object-cover object-center"
                 style={{ height: '240px' }}
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
@@ -98,11 +98,11 @@ export function FostMembership({ onJoin, onLearnMore, onLogin }: { onJoin?: () =
               </div>
             </div>
 
-            {/* Kandao photo */}
+            {/* First Access photo */}
             <div className="absolute rounded-2xl overflow-hidden shadow-lg" style={{ top: '210px', left: '0', width: '50%', zIndex: 3 }}>
               <img
-                src={kandaoFOST}
-                alt="Kandao"
+                src={firstAccessFOST}
+                alt="SwitchBot Hub 3"
                 className="w-full object-cover"
                 style={{ height: '200px' }}
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
@@ -116,11 +116,11 @@ export function FostMembership({ onJoin, onLearnMore, onLogin }: { onJoin?: () =
               <p className="text-neutral-500 text-[10px]">Members saw it first.</p>
             </div>
 
-            {/* Skullcandy photo */}
+            {/* New Season photo */}
             <div className="absolute rounded-2xl overflow-hidden shadow-lg" style={{ top: '260px', right: '0', width: '48%', zIndex: 3 }}>
               <img
-                src={skullcandyFOST}
-                alt="Skullcandy"
+                src={newSeasonFOST}
+                alt="Matador SEG28"
                 className="w-full object-cover"
                 style={{ height: '200px' }}
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}

@@ -1,8 +1,8 @@
 import { Crown, Tag, Zap, Users, Gift, CalendarHeart, Truck, Heart, ChevronLeft, LogIn } from 'lucide-react';
-import obsbotFOST from '../../imports/obsbotFOST.png';
-import kandaoFOST from '../../imports/kandaoFOST.png';
-import skullcandyFOST from '../../imports/skullcandyFOST.png';
-import layoutImg from '../../imports/layout.png';
+import sennheiserFOST from '../../imports/Sennheiser FOST.png';
+import firstAccessFOST from '../../imports/First Access FOST.png';
+import newSeasonFOST from '../../imports/New Season FOST.png';
+import layoutImg from '../../imports/Layout FOST.png';
 
 const perks = [
   {
@@ -161,13 +161,13 @@ export function FostMembershipPage({ onBack, onJoin, onLogin }: FostMembershipPa
       <div className="max-w-7xl mx-auto px-4 pb-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="rounded-2xl overflow-hidden shadow-sm" style={{ height: '200px' }}>
-            <img src={obsbotFOST} alt="OBSBOT" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <img src={sennheiserFOST} alt="Sennheiser HD 620S" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
           </div>
           <div className="rounded-2xl overflow-hidden shadow-sm" style={{ height: '200px' }}>
-            <img src={kandaoFOST} alt="Kandao" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <img src={firstAccessFOST} alt="SwitchBot Hub 3" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
           </div>
           <div className="rounded-2xl overflow-hidden shadow-sm" style={{ height: '200px' }}>
-            <img src={skullcandyFOST} alt="Skullcandy" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <img src={newSeasonFOST} alt="Matador SEG28" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
           </div>
           <div className="rounded-2xl overflow-hidden shadow-sm" style={{ height: '200px' }}>
             <img src={layoutImg} alt="FOST products" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
