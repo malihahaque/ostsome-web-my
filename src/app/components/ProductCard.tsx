@@ -99,34 +99,34 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
             {showFlashPrice ? (
               <>
                 <span className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">
-                  SGD {flashSalePrice!.toFixed(2)}
+                  RM {flashSalePrice!.toFixed(2)}
                 </span>
                 <span className="text-xs text-neutral-400 line-through">
-                  SGD {product.price.toFixed(2)}
+                  RM {product.price.toFixed(2)}
                 </span>
               </>
             ) : isFostMember ? (
               <>
                 <div className="flex items-center gap-1.5">
                   <span className="text-base font-bold text-[#F16C10]">
-                    SGD {fostPrice.toFixed(2)}
+                    RM {fostPrice.toFixed(2)}
                   </span>
                   <span className="text-[8px] font-bold text-white bg-[#F16C10] px-1.5 py-0.5 rounded uppercase tracking-wide">
                     FOST
                   </span>
                 </div>
                 <span className="text-xs text-neutral-400 line-through">
-                  SGD {product.price.toFixed(2)}
+                  RM {product.price.toFixed(2)}
                 </span>
               </>
             ) : (
               <>
                 <span className="text-base font-bold text-black">
-                  SGD {product.price.toFixed(2)}
+                  RM {product.price.toFixed(2)}
                 </span>
                 {hasDiscount && (
                   <span className="text-xs text-neutral-400 line-through">
-                    SGD {product.comparePrice!.toFixed(2)}
+                    RM {product.comparePrice!.toFixed(2)}
                   </span>
                 )}
               </>
