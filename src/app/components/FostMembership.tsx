@@ -88,13 +88,13 @@ export function FostMembership({ onJoin, onLearnMore, onLogin }: { onJoin?: () =
             {/* Member Pricing card — top right */}
             <div className="absolute top-0 right-0 bg-white border border-neutral-200 rounded-2xl shadow-md p-4" style={{ width: '46%', zIndex: 2 }}>
               <p className="text-[#F16C10] text-[9px] font-bold uppercase tracking-widest mb-2">Member Pricing</p>
-              <p className="text-black text-xs font-bold mb-3 leading-snug">OBSBOT Tiny 3 Lite 4K Webcam</p>
+              <p className="text-black text-xs font-bold mb-3 leading-snug">Sennheiser HD 620S Audiophile Headphones</p>
               <p className="text-neutral-400 text-[10px] mb-0.5">Public Price</p>
-              <p className="text-neutral-400 text-sm line-through mb-2">SGD 379</p>
+              <p className="text-neutral-400 text-sm line-through mb-2">RM 1,899</p>
               <p className="text-[#F16C10] text-[9px] font-bold uppercase tracking-wider mb-0.5">FOST Price</p>
-              <p className="text-[#F16C10] text-2xl font-bold mb-2">SGD 329</p>
+              <p className="text-[#F16C10] text-2xl font-bold mb-2">RM 1,399</p>
               <div className="bg-[#F16C10]/10 text-[#F16C10] text-[9px] font-bold px-2 py-1 rounded-full inline-block">
-                You save SGD 50
+                You save RM 500
               </div>
             </div>
 
@@ -112,7 +112,7 @@ export function FostMembership({ onJoin, onLearnMore, onLogin }: { onJoin?: () =
             {/* First Access card */}
             <div className="absolute bg-white border border-neutral-200 rounded-2xl shadow-md p-3" style={{ top: '418px', left: '0', width: '48%', zIndex: 4 }}>
               <p className="text-[#F16C10] text-[9px] font-bold uppercase tracking-wider mb-1">First Access</p>
-              <p className="text-black text-xs font-bold">Kandao QooCam 3 Ultra</p>
+              <p className="text-black text-xs font-bold">SwitchBot Hub 3</p>
               <p className="text-neutral-500 text-[10px]">Members saw it first.</p>
             </div>
 
@@ -129,9 +129,9 @@ export function FostMembership({ onJoin, onLearnMore, onLogin }: { onJoin?: () =
 
             {/* Product Testing card */}
             <div className="absolute bg-white border border-neutral-200 rounded-2xl shadow-md p-3" style={{ top: '468px', right: '0', width: '48%', zIndex: 4 }}>
-              <p className="text-[#F16C10] text-[9px] font-bold uppercase tracking-wider mb-1">Product Testing</p>
-              <p className="text-black text-xs font-bold">Skullcandy Aviator 900 ANC</p>
-              <p className="text-neutral-500 text-[10px]">New launch preview. Invitation sent.</p>
+              <p className="text-[#F16C10] text-[9px] font-bold uppercase tracking-wider mb-1">New This Season</p>
+              <p className="text-black text-xs font-bold">Matador SEG28 Segmented Backpack</p>
+              <p className="text-neutral-500 text-[10px]">Now in the OSTSOME lineup.</p>
             </div>
 
             {/* Bottom flat lay */}

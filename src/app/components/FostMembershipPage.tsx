@@ -12,8 +12,8 @@ const perks = [
   },
   {
     icon: Truck,
-    title: 'Free Shipping in Singapore',
-    description: 'FOST members get free shipping on every order delivered within Singapore — no minimum spend required. Everyone else needs to spend SGD 150 to qualify; members never have to.',
+    title: 'Free Shipping in Malaysia',
+    description: 'FOST members get free shipping on every order delivered within Malaysia — no minimum spend required. Everyone else needs to spend RM 400 to qualify; members never have to.',
   },
   {
     icon: Zap,
@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     q: 'Does free shipping really have no minimum?',
-    a: 'Correct — for deliveries within Singapore, FOST members get free shipping on every order, regardless of order size. Non-members still need to hit SGD 150 to qualify.',
+    a: 'Correct — for deliveries within Malaysia, FOST members get free shipping on every order, regardless of order size. Non-members still need to hit RM 400 to qualify.',
   },
   {
     q: 'Does it cost anything to join?',
@@ -125,13 +125,13 @@ export function FostMembershipPage({ onBack, onJoin, onLogin }: FostMembershipPa
           </div>
           <div className="bg-white rounded-2xl p-6 text-black max-w-sm w-full">
             <p className="text-[#F16C10] text-[10px] font-bold uppercase tracking-widest mb-2">Member Pricing</p>
-            <p className="text-black text-sm font-bold mb-3 leading-snug">OBSBOT Tiny 3 Lite 4K Webcam</p>
+            <p className="text-black text-sm font-bold mb-3 leading-snug">Sennheiser HD 620S Audiophile Headphones</p>
             <p className="text-neutral-400 text-[11px] mb-0.5">Public Price</p>
-            <p className="text-neutral-400 text-base line-through mb-2">SGD 379</p>
+            <p className="text-neutral-400 text-base line-through mb-2">RM 1,899</p>
             <p className="text-[#F16C10] text-[10px] font-bold uppercase tracking-wider mb-0.5">FOST Price</p>
-            <p className="text-[#F16C10] text-3xl font-bold mb-3">SGD 329</p>
+            <p className="text-[#F16C10] text-3xl font-bold mb-3">RM 1,399</p>
             <div className="bg-[#F16C10]/10 text-[#F16C10] text-xs font-bold px-3 py-1.5 rounded-full inline-block">
-              You save SGD 50
+              You save RM 500
             </div>
           </div>
         </div>
