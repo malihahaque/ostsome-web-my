@@ -2,8 +2,8 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import type { Product as AppProduct } from '../data/products';
-import deskSetup from '../../imports/desk_study_setup_.png';
-import beachProducts from '../../imports/beach_products_figma.png';
+import deskSetup from '../../imports/Desktop_STS.png';
+import beachProducts from '../../imports/Beach_STS.png';
 
 const ChevronLeftIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -45,31 +45,30 @@ const scenes: Scene[] = [
     products: [
       {
         id: 1,
-        name: 'Arzopa D10 Digital Photo Frame',
-        price: 114,
-        handle: 'arzopa-d10-10-1-digital-photo-frame',
-        position: { top: '58%', left: '15%' },
+        name: 'SwitchBot Hub 3',
+        // ⚠️ price unverified — confirm against live Shopify MY pricing.
+        price: 249,
+        // ⚠️ handle unverified guess — run against live Shopify before ship.
+        handle: 'switchbot-hub-3',
+        position: { top: '22%', left: '44%' },
       },
       {
         id: 2,
-        name: 'Arzopa Portable Monitor',
-        price: 172,
-        handle: 'arzopa-ar-a1-gamut-15-6-fhd-portable-monitor-ips-1920-1080p-freq-60hz-type-c-hdmi-w-smart-cover-copy',
-        position: { top: '33%', left: '44%' },
+        name: 'Sennheiser Momentum 4 Wireless Headphones',
+        // ⚠️ price unverified — confirm against live Shopify MY pricing.
+        price: 1299,
+        // ⚠️ handle unverified guess — run against live Shopify before ship.
+        handle: 'sennheiser-momentum-4-wireless-headphone',
+        position: { top: '84%', left: '51%' },
       },
       {
         id: 3,
-        name: 'Skullcandy Crusher ANC 2 Wireless Headphones',
-        price: 279,
-        handle: 'skullcandy-crusher-anc-2-wireless-headphones',
-        position: { top: '62%', left: '73%' },
-      },
-      {
-        id: 4,
-        name: 'LARQ Water Bottle',
-        price: 69,
-        handle: 'larq-bottle-swig-top-680ml',
-        position: { top: '54%', left: '85%' },
+        name: 'Click & Grow Smart Garden 3',
+        // ⚠️ price unverified — confirm against live Shopify MY pricing.
+        price: 349,
+        // ⚠️ handle unverified guess — run against live Shopify before ship.
+        handle: 'click-grow-smart-garden-3',
+        position: { top: '40%', left: '76%' },
       },
     ],
   },
@@ -81,31 +80,30 @@ const scenes: Scene[] = [
     products: [
       {
         id: 5,
-        name: 'Polaroid Camera',
-        price: 229,
-        handle: 'polaroid-now-instant-camera-gen3',
-        position: { top: '64%', left: '24%' },
-      },
-      {
-        id: 8,
-        name: 'Dometic Cooler',
-        price: 1349,
-        handle: 'dometic-cfx5-35-performance-compressor-cooler',
-        position: { top: '42%', left: '34%' },
+        name: 'Skullcandy Crusher ANC 2 Wireless Headphones',
+        // ⚠️ price unverified — confirm against live Shopify MY pricing.
+        price: 799,
+        // ⚠️ handle unverified guess — run against live Shopify before ship.
+        handle: 'skullcandy-crusher-anc-2-wireless-headphones',
+        position: { top: '51%', left: '38%' },
       },
       {
         id: 6,
-        name: 'Otterbox Tumbler',
-        price: 18,
-        handle: 'otterbox-elevation-hot-cold-tumbler-20-fluid-oz-591ml',
-        position: { top: '50%', left: '69%' },
+        name: 'TexEnergy Portable Power Bank',
+        // ⚠️ price unverified — confirm against live Shopify MY pricing.
+        price: 129,
+        // ⚠️ handle unverified guess — run against live Shopify before ship.
+        handle: 'texenergy-portable-power-bank',
+        position: { top: '63%', left: '53%' },
       },
       {
         id: 7,
-        name: 'Sennheiser Headphones',
-        price: 179,
-        handle: 'sennheiser-accentum-wireless-headphone',
-        position: { top: '45%', left: '86%' },
+        name: 'Matador SEG28 Segmented Backpack',
+        // ⚠️ price unverified — confirm against live Shopify MY pricing.
+        price: 799,
+        // ⚠️ handle unverified guess — run against live Shopify before ship.
+        handle: 'matador-seg28-segmented-backpack',
+        position: { top: '41%', left: '78%' },
       },
     ],
   },
@@ -185,7 +183,7 @@ export function ShoppableSetup({ onSelectProduct }: { onSelectProduct?: (product
                           }}
                         >
                           <div className="text-[14px] md:text-sm font-bold text-black mb-1">{product.name}</div>
-                          <div className="text-[16px] md:text-lg font-bold text-[#F16C10]">${product.price}</div>
+                          <div className="text-[16px] md:text-lg font-bold text-[#F16C10]">RM {product.price}</div>
                           {realProduct && (
                             <div className="text-[11px] font-semibold text-[#F16C10] mt-1">View Product →</div>
                           )}
