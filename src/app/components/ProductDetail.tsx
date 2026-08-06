@@ -607,9 +607,9 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
                 </div>
                 <div className="flex items-baseline gap-3">
                   <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">
-                    SGD {flashSalePrice!.toFixed(2)}
+                    RM {flashSalePrice!.toFixed(2)}
                   </span>
-                  <span className="text-lg text-neutral-400 line-through">SGD {activePrice.toFixed(2)}</span>
+                  <span className="text-lg text-neutral-400 line-through">RM {activePrice.toFixed(2)}</span>
                 </div>
                 <p className="text-xs text-neutral-400 mt-1">
                   FOST Friday Flash Deal price — applied automatically at checkout, while stock lasts.
@@ -624,32 +624,32 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
                 </div>
                 <div className="flex items-baseline gap-3">
                   <span className="text-3xl font-bold text-[#F16C10]">
-                    SGD {(isFostMember ? getFostPrice(campaignDeal!.promo) : campaignDeal!.promo).toFixed(2)}
+                    RM {(isFostMember ? getFostPrice(campaignDeal!.promo) : campaignDeal!.promo).toFixed(2)}
                   </span>
                   <span className="text-lg text-neutral-400 line-through">
-                    SGD {(isFostMember ? campaignDeal!.promo : campaignDeal!.srp).toFixed(2)}
+                    RM {(isFostMember ? campaignDeal!.promo : campaignDeal!.srp).toFixed(2)}
                   </span>
                 </div>
                 {isFostMember && (
-                  <p className="text-xs text-neutral-400 mt-1">Original price SGD {campaignDeal!.srp.toFixed(2)} — now with an extra 5% FOST member discount</p>
+                  <p className="text-xs text-neutral-400 mt-1">Original price RM {campaignDeal!.srp.toFixed(2)} — now with an extra 5% FOST member discount</p>
                 )}
               </div>
             ) : isFostMember ? (
               <div className="mb-1">
                 <div className="flex items-baseline gap-3">
-                  <span className="text-3xl font-bold text-[#F16C10]">SGD {getFostPrice(activePrice).toFixed(2)}</span>
-                  <span className="text-lg text-neutral-400 line-through">SGD {activePrice.toFixed(2)}</span>
+                  <span className="text-3xl font-bold text-[#F16C10]">RM {getFostPrice(activePrice).toFixed(2)}</span>
+                  <span className="text-lg text-neutral-400 line-through">RM {activePrice.toFixed(2)}</span>
                   <span className="text-[10px] font-bold text-white bg-[#F16C10] px-2 py-0.5 rounded-full uppercase tracking-wide">FOST Price</span>
                 </div>
                 {hasDiscount && (
-                  <p className="text-xs text-neutral-400 mt-1">Original price SGD {effectiveComparePrice!.toFixed(2)} — now with an extra 5% FOST member discount</p>
+                  <p className="text-xs text-neutral-400 mt-1">Original price RM {effectiveComparePrice!.toFixed(2)} — now with an extra 5% FOST member discount</p>
                 )}
               </div>
             ) : (
               <div className="flex items-baseline gap-3 mb-1">
-                <span className="text-3xl font-bold text-black">SGD {activePrice.toFixed(2)}</span>
+                <span className="text-3xl font-bold text-black">RM {activePrice.toFixed(2)}</span>
                 {hasDiscount && (
-                  <span className="text-lg text-neutral-400 line-through">SGD {effectiveComparePrice!.toFixed(2)}</span>
+                  <span className="text-lg text-neutral-400 line-through">RM {effectiveComparePrice!.toFixed(2)}</span>
                 )}
               </div>
             )}
@@ -661,7 +661,7 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
             {isFostMember && <div className="mb-5" />}
 
             <p className="text-xs text-neutral-500 mb-6 bg-neutral-50 border border-neutral-100 rounded-lg px-3 py-2">
-              Or 3 payments of <strong className="text-black">SGD {((showFlashPrice ? flashSalePrice! : showCampaignPrice ? (isFostMember ? getFostPrice(campaignDeal!.promo) : campaignDeal!.promo) : isFostMember ? getFostPrice(activePrice) : activePrice) / 3).toFixed(2)}</strong> with Atome. Taxes included.
+              Or 3 payments of <strong className="text-black">RM {((showFlashPrice ? flashSalePrice! : showCampaignPrice ? (isFostMember ? getFostPrice(campaignDeal!.promo) : campaignDeal!.promo) : isFostMember ? getFostPrice(activePrice) : activePrice) / 3).toFixed(2)}</strong> with Atome. Taxes included.
             </p>
 
             {/* Option 1 */}
@@ -853,7 +853,7 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
 
             <div className="grid grid-cols-3 gap-3 mb-8">
               {[
-                { icon: Truck, label: 'Free shipping', sub: 'Orders over SGD 150' },
+                { icon: Truck, label: 'Free shipping', sub: 'Orders over RM 400' },
                 { icon: Shield, label: 'Warranty', sub: '1-year coverage' },
                 { icon: RefreshCw, label: 'Easy returns', sub: '30-day policy' },
               ].map(({ icon: Icon, label, sub }) => (
