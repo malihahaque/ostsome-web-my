@@ -2,8 +2,8 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import type { Product as AppProduct } from '../data/products';
-import deskSetup from '../../imports/Desktop_STS.png';
-import beachProducts from '../../imports/Beach_STS.png';
+import deskSetup from '../../imports/Desktop STS.png';
+import beachProducts from '../../imports/Beach STS.png';
 
 const ChevronLeftIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
