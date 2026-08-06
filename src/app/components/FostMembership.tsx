@@ -90,11 +90,11 @@ export function FostMembership({ onJoin, onLearnMore, onLogin }: { onJoin?: () =
               <p className="text-[#F16C10] text-[9px] font-bold uppercase tracking-widest mb-2">Member Pricing</p>
               <p className="text-black text-xs font-bold mb-3 leading-snug">Sennheiser HD 620S Audiophile Headphones</p>
               <p className="text-neutral-400 text-[10px] mb-0.5">Public Price</p>
-              <p className="text-neutral-400 text-sm line-through mb-2">RM 1,899</p>
+              <p className="text-neutral-400 text-sm line-through mb-2">RM 1,399</p>
               <p className="text-[#F16C10] text-[9px] font-bold uppercase tracking-wider mb-0.5">FOST Price</p>
-              <p className="text-[#F16C10] text-2xl font-bold mb-2">RM 1,399</p>
+              <p className="text-[#F16C10] text-2xl font-bold mb-2">RM 1,329.05</p>
               <div className="bg-[#F16C10]/10 text-[#F16C10] text-[9px] font-bold px-2 py-1 rounded-full inline-block">
-                You save RM 500
+                You save RM 69.95
               </div>
             </div>
 
