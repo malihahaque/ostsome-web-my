@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ShoppingCart, Star, Shield, Truck, RefreshCw, Check, X } from 'lucide-react';
 import type { Product } from '../data/products';
-import { getVariants } from '../data/productVariants';
+import { getVariants, type ProductVariant } from '../data/productVariants';
 import { useCart } from './CartContext';
 import { useAuth } from './AuthContext';
 import { fetchProductByHandle } from '../data/shopify';
@@ -69,6 +69,11 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
   // reason: SKU is stable, the static file is not.
   const [shopifyPrices, setShopifyPrices] = useState<Record<string, number>>({});
   const [shopifyCompareAtPrices, setShopifyCompareAtPrices] = useState<Record<string, number | null>>({});
+  // Fallback variant list built from live Shopify data (selectedOptions),
+  // used only when this product's handle has no entry in the static
+  // productVariants.ts snapshot — see the "Variant not linked to Shopify"
+  // root-cause note in the fetch effect below.
+  const [liveVariantsFallback, setLiveVariantsFallback] = useState<ProductVariant[]>([]);
   const [variantsLoaded, setVariantsLoaded] = useState(false);
   const [stockWarning, setStockWarning] = useState<{ requested: number; available: number; intent: 'cart' | 'checkout' } | null>(null);
 
@@ -94,6 +99,16 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
       const qtyMap: Record<string, number | null> = {};
       const priceMap: Record<string, number> = {};
       const compareAtMap: Record<string, number | null> = {};
+      // Built alongside the maps above from the SAME live Shopify response —
+      // used only as a fallback when productVariants.ts has no static entry
+      // for this handle (e.g. a MY-only product like Theragun PRO Plus that
+      // was never added to that SG-originated snapshot). Without this,
+      // any product missing from the static file with more than one real
+      // Shopify variant renders no option-selector UI at all, so
+      // selectedVariant/shopifyVariantId can never resolve — that's the
+      // "Variant not linked to Shopify" bug. selectedOptions was already
+      // being fetched here and simply unused until now.
+      const fallbackVariants: ProductVariant[] = [];
       sp.variants.edges.forEach(({ node }) => {
         const key = skuKey(node.sku);
         idMap[key] = node.id;
@@ -101,6 +116,17 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
         qtyMap[key] = node.quantityAvailable ?? null;
         priceMap[key] = parseFloat(node.price.amount);
         compareAtMap[key] = node.compareAtPrice ? parseFloat(node.compareAtPrice.amount) : null;
+
+        const [opt1, opt2] = node.selectedOptions ?? [];
+        fallbackVariants.push({
+          option1Name: opt1?.name ?? null,
+          option1Value: opt1?.value ?? 'Default Title',
+          option2Name: opt2?.name,
+          option2Value: opt2?.value,
+          price: parseFloat(node.price.amount),
+          image: node.image?.url,
+          sku: node.sku,
+        });
       });
       // Single-variant products (no colour/size choices) are often absent
       // from productVariants.ts entirely, so selectedVariant never gets
@@ -123,11 +149,19 @@ export function ProductDetail({ product, onBack, onCheckout }: ProductDetailProp
       setShopifyQuantity(qtyMap);
       setShopifyPrices(priceMap);
       setShopifyCompareAtPrices(compareAtMap);
+      setLiveVariantsFallback(fallbackVariants);
       setVariantsLoaded(true);
     }).catch(() => setVariantsLoaded(true));
   }, [product.handle]);
 
-  const variants = getVariants(product.handle);
+  // Static productVariants.ts is preferred when it has an entry (it carries
+  // hand-curated image assignments per colour that the live fetch doesn't
+  // replicate as reliably) — but when a handle is missing from that static
+  // snapshot entirely, fall back to the live-derived list above instead of
+  // silently rendering no option selector. See the fetch effect above for
+  // why this fallback exists.
+  const staticVariants = getVariants(product.handle);
+  const variants = staticVariants.length > 0 ? staticVariants : liveVariantsFallback;
 
   // Default to the first listed variant option so the price shown reflects
   // an actual variant right away, instead of falling back to the base

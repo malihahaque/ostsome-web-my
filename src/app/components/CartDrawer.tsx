@@ -10,7 +10,7 @@ export function CartDrawer() {
   } = useCart();
   const flashSaleActive = useFlashSaleActive();
 
-  const shippingThreshold = 150;
+  const shippingThreshold = 400;
   const freeShipping = fostSubtotal >= shippingThreshold;
   const shippingGap = shippingThreshold - fostSubtotal;
 
@@ -59,7 +59,7 @@ export function CartDrawer() {
             ) : (
               <div>
                 <p className="text-xs text-neutral-500 mb-2 text-center">
-                  Add <span className="font-bold text-black">SGD {shippingGap.toFixed(2)}</span> more for free shipping
+                  Add <span className="font-bold text-black">RM {shippingGap.toFixed(2)}</span> more for free shipping
                 </p>
                 <div className="w-full bg-neutral-200 rounded-full h-1.5">
                   <div
@@ -139,10 +139,10 @@ export function CartDrawer() {
                             return (
                               <div className="flex flex-col items-end">
                                 <span className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">
-                                  SGD {(flashSalePrice * item.qty).toFixed(2)}
+                                  RM {(flashSalePrice * item.qty).toFixed(2)}
                                 </span>
                                 <span className="text-[10px] text-neutral-400 line-through">
-                                  SGD {(item.variantPrice * item.qty).toFixed(2)}
+                                  RM {(item.variantPrice * item.qty).toFixed(2)}
                                 </span>
                               </div>
                             );
@@ -150,15 +150,15 @@ export function CartDrawer() {
                           return isFostMember ? (
                             <div className="flex flex-col items-end">
                               <span className="text-sm font-bold text-[#F16C10]">
-                                SGD {(getFostPrice(item.variantPrice) * item.qty).toFixed(2)}
+                                RM {(getFostPrice(item.variantPrice) * item.qty).toFixed(2)}
                               </span>
                               <span className="text-[10px] text-neutral-400 line-through">
-                                SGD {(item.variantPrice * item.qty).toFixed(2)}
+                                RM {(item.variantPrice * item.qty).toFixed(2)}
                               </span>
                             </div>
                           ) : (
                             <span className="text-sm font-bold text-black">
-                              SGD {(item.variantPrice * item.qty).toFixed(2)}
+                              RM {(item.variantPrice * item.qty).toFixed(2)}
                             </span>
                           );
                         })()}
@@ -180,23 +180,24 @@ export function CartDrawer() {
             <div className="flex items-center justify-between mb-1">
               <span className="text-sm text-neutral-500">Subtotal</span>
               <span className={`text-base font-bold ${isFostMember ? 'text-neutral-400 line-through' : 'text-black'}`}>
-                SGD {subtotal.toFixed(2)}
+                RM {subtotal.toFixed(2)}
               </span>
             </div>
             {isFostMember && (
               <div className="flex items-center justify-between mb-1">
                 <span className="text-sm text-[#F16C10] font-semibold">FOST member savings (5%)</span>
-                <span className="text-sm font-bold text-[#F16C10]">– SGD {fostSavings.toFixed(2)}</span>
+                <span className="text-sm font-bold text-[#F16C10]">– RM {fostSavings.toFixed(2)}</span>
               </div>
             )}
             {isFostMember && (
               <div className="flex items-center justify-between mb-1">
                 <span className="text-sm text-black font-semibold">FOST total</span>
-                <span className="text-base font-bold text-black">SGD {fostSubtotal.toFixed(2)}</span>
+                <span className="text-base font-bold text-black">RM {fostSubtotal.toFixed(2)}</span>
               </div>
             )}
             <p className="text-xs text-neutral-400 mb-4">
-              {freeShipping ? 'Free shipping applied' : `+ SGD ${(8.90).toFixed(2)} estimated shipping`}
+              {/* ⚠️ 8.90 is the SG shipping fee, unverified for MY — confirm the actual MY courier rate with Kenneth before shipping this. */}
+              {freeShipping ? 'Free shipping applied' : `+ RM ${(8.90).toFixed(2)} estimated shipping`}
             </p>
             <button
               onClick={handleCheckout}
