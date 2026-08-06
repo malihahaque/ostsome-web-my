@@ -18,6 +18,9 @@ import { ProductDetail } from './components/ProductDetail';
 import { BrandsPage } from './components/BrandsPage';
 import { BrandDetail } from './components/BrandDetail';
 import { NavCategoryPage } from './components/NavCategoryPage';
+import { StudyModePage } from './components/StudyModePage';
+import { TravelReadyPage } from './components/TravelReadyPage';
+import { SmartHomePage } from './components/SmartHomePage';
 import { CartProvider, useCart } from './components/CartContext';
 import { AuthProvider } from './components/AuthContext';
 import { CartDrawer } from './components/CartDrawer';
@@ -30,7 +33,7 @@ import type { Tab as AccountTab } from './components/AccountPage';
 import { useProducts } from './hooks/useProducts';
 import type { Product } from './data/products';
 
-type Page = 'home' | 'products' | 'product-detail' | 'brands' | 'brand-detail' | 'nav-category' | 'checkout' | 'account' | 'admin' | 'launch-exclusive' | 'one-season-off' | 'fost-membership';
+type Page = 'home' | 'products' | 'product-detail' | 'brands' | 'brand-detail' | 'nav-category' | 'checkout' | 'account' | 'admin' | 'launch-exclusive' | 'one-season-off' | 'fost-membership' | 'study-mode' | 'travel-ready' | 'smart-home';
 
 // Everything needed to fully restore a screen — this is what gets stored in
 // browser history so the back/forward buttons can actually move between
@@ -68,6 +71,12 @@ function buildUrl(state: NavState): string {
       return '/clearance';
     case 'fost-membership':
       return '/fost';
+    case 'study-mode':
+      return '/study-mode';
+    case 'travel-ready':
+      return '/travel-ready';
+    case 'smart-home':
+      return '/smart-home';
     case 'checkout':
       return '/checkout';
     case 'home':
@@ -255,6 +264,12 @@ function AppInner() {
       goTo({ page: 'one-season-off' }, { replace: true, scroll: false });
     } else if (path === '/fost') {
       goTo({ page: 'fost-membership' }, { replace: true, scroll: false });
+    } else if (path === '/study-mode') {
+      goTo({ page: 'study-mode' }, { replace: true, scroll: false });
+    } else if (path === '/travel-ready') {
+      goTo({ page: 'travel-ready' }, { replace: true, scroll: false });
+    } else if (path === '/smart-home') {
+      goTo({ page: 'smart-home' }, { replace: true, scroll: false });
     } else if (window.location.hash !== '#admin') {
       // Establish an initial history entry for the home page so that
       // pressing "back" from the very first navigation has somewhere
@@ -275,6 +290,10 @@ function AppInner() {
 
   const handleNavToNavCategory = (category: string) => {
     goTo({ page: 'nav-category', navCategory: category });
+  };
+
+  const handleNavToLifestylePage = (lifestylePage: 'study-mode' | 'travel-ready' | 'smart-home') => {
+    goTo({ page: lifestylePage });
   };
 
   const handleNavToProducts = () => goTo({ page: 'products', search: '' });
@@ -345,7 +364,7 @@ function AppInner() {
             onJoinFost={() => setAuthModal({ open: true, view: 'signup' })}
           />
           <WhatsNewThisWeek onShopAll={handleNavToProducts} onSelectProduct={handleSelectProduct} />
-          <DiscoveryByLifestyle onNavToCategory={handleNavToNavCategory} onNavToProducts={handleNavToProducts} />
+          <DiscoveryByLifestyle onNavToLifestylePage={handleNavToLifestylePage} />
           <FostMembership
             onJoin={() => setAuthModal({ open: true, view: 'signup' })}
             onLogin={() => setAuthModal({ open: true, view: 'login' })}
@@ -396,6 +415,27 @@ function AppInner() {
       {page === 'nav-category' && selectedNavCategory && (
         <NavCategoryPage
           category={selectedNavCategory}
+          onBack={() => goTo({ page: 'home' })}
+          onSelectProduct={handleSelectProduct}
+        />
+      )}
+
+      {page === 'study-mode' && (
+        <StudyModePage
+          onBack={() => goTo({ page: 'home' })}
+          onSelectProduct={handleSelectProduct}
+        />
+      )}
+
+      {page === 'travel-ready' && (
+        <TravelReadyPage
+          onBack={() => goTo({ page: 'home' })}
+          onSelectProduct={handleSelectProduct}
+        />
+      )}
+
+      {page === 'smart-home' && (
+        <SmartHomePage
           onBack={() => goTo({ page: 'home' })}
           onSelectProduct={handleSelectProduct}
         />

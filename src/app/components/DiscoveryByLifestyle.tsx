@@ -11,7 +11,7 @@ const lifestyles = [
     icon: BookOpen,
     image: studyImg,
     products: '9 products',
-    navCategory: 'Mobile Audio',
+    page: 'study-mode' as const,
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const lifestyles = [
     icon: Compass,
     image: travelImg,
     products: '29 products',
-    navCategory: 'Outdoor Travel',
+    page: 'travel-ready' as const,
   },
   {
     id: 3,
@@ -29,16 +29,17 @@ const lifestyles = [
     icon: Home,
     image: smartHomeImg,
     products: '8 products',
-    navCategory: 'Smart Home',
+    page: 'smart-home' as const,
   },
 ];
 
+type LifestylePage = 'study-mode' | 'travel-ready' | 'smart-home';
+
 type Props = {
-  onNavToCategory?: (category: string) => void;
-  onNavToProducts?: () => void;
+  onNavToLifestylePage?: (page: LifestylePage) => void;
 };
 
-export function DiscoveryByLifestyle({ onNavToCategory, onNavToProducts }: Props) {
+export function DiscoveryByLifestyle({ onNavToLifestylePage }: Props) {
   return (
     <section className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -53,7 +54,7 @@ export function DiscoveryByLifestyle({ onNavToCategory, onNavToProducts }: Props
             return (
               <div
                 key={lifestyle.id}
-                onClick={() => lifestyle.navCategory ? onNavToCategory?.(lifestyle.navCategory) : onNavToProducts?.()}
+                onClick={() => onNavToLifestylePage?.(lifestyle.page)}
                 className="group relative overflow-hidden rounded-xl cursor-pointer"
               >
                 <div className="relative h-[300px] md:h-[380px] bg-neutral-100 overflow-hidden">
