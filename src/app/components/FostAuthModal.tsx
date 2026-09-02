@@ -257,6 +257,20 @@ function SignupView({ onLogin, onSuccess }: {
         setLoading(false);
         return;
       }
+      // Tag the new customer as a FOST member in Shopify so discounts like
+      // FOST5 can be scoped to a customer segment. This has to go through
+      // a server-side Admin API call (Storefront API's customerCreate has
+      // no `tags` field), so it's a separate fire-and-forget request —
+      // deliberately not awaited-and-blocking, and any failure here should
+      // never stop the signup flow itself from completing for the user.
+      fetch('/.netlify/functions/tag-fost-member', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: form.email }),
+      }).catch(() => {
+        // Silently ignore — worst case, this customer gets picked up in a
+        // manual Shopify Admin backfill later rather than blocking signup.
+      });
       // Auto-login after registration
       const tokenResult = await customerLogin(form.email, form.password);
       if (tokenResult) {
