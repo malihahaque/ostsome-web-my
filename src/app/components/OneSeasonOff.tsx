@@ -86,7 +86,7 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
                 {homepageDeals.map(({ deal, product }) => {
                   const pct = Math.round(((deal.srp - deal.promo) / deal.srp) * 100);
                   return (
-                    <div key={deal.handle} onClick={() => onSelectProduct?.(product)} className="bg-white rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group flex flex-row" style={{ height: 110 }}>
+                    <div key={deal.handle} onClick={() => onSelectProduct?.(product)} className="bg-white rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group flex flex-row" style={{ minHeight: 132 }}>
                       <div className="relative bg-neutral-50 overflow-hidden shrink-0" style={{ width: '38%' }}>
                         <img src={product.images[0]} alt={deal.name} className="w-full h-full object-contain p-2.5 group-hover:scale-105 transition duration-500" onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80'; }} />
                         <span className="absolute top-2 left-2 text-white font-black px-2.5 py-1 rounded-full" style={{ fontSize: '0.75rem', backgroundColor: '#FF1F1F' }}>-{pct}%</span>
