@@ -3,8 +3,8 @@ import { useAuth } from './components/AuthContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { FridayFlashDeals } from './components/FridayFlashDeals';
-import { LaunchExclusive } from './components/LaunchExclusive';
-import { OneSeasonOff } from './components/OneSeasonOff';
+// TEMP: homepage teasers disabled, see below — import { LaunchExclusive } from './components/LaunchExclusive';
+// TEMP: homepage teasers disabled, see below — import { OneSeasonOff } from './components/OneSeasonOff';
 import { OneSeasonOffPage } from './components/OneSeasonOffPage';
 import { WhatsNewThisWeek } from './components/WhatsNewThisWeek';
 import { ShoppableSetup } from './components/ShoppableSetup';
@@ -370,15 +370,15 @@ function AppInner() {
             onLogin={() => setAuthModal({ open: true, view: 'login' })}
             onLearnMore={() => goTo({ page: 'fost-membership' })}
           />
-          <LaunchExclusive
-            onSelectProduct={handleSelectProduct}
-            onViewAll={() => goTo({ page: 'launch-exclusive' })}
-          />
+          {/* TEMP: LaunchExclusive hidden — campaignDeals.ts handles unverified
+              against live MY Shopify inventory, grid renders empty. Re-enable
+              once real handles are confirmed. See LaunchExclusivePage for the
+              standalone /launch route, currently also affected. */}
           <WhyEnthusiasts />
-          <OneSeasonOff
-            onSelectProduct={handleSelectProduct}
-            onViewAll={() => goTo({ page: 'one-season-off' })}
-          />
+          {/* TEMP: OneSeasonOff hidden — same campaignDeals.ts handle issue
+              as LaunchExclusive above. Re-enable once real handles are
+              confirmed. See OneSeasonOffPage for the standalone /clearance
+              route, currently also affected. */}
           <ShoppableSetup onSelectProduct={handleSelectProduct} />
           <OurStory />
         </>
