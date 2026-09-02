@@ -50,7 +50,7 @@ export function OneSeasonOffPage({ onBack, onSelectProduct }: Props) {
             <div className="text-left md:text-right shrink-0">
               <div className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Clearance Off</div>
               <div className="text-6xl md:text-7xl font-black leading-none" style={{ color: '#FF1F1F' }}>Up to</div>
-              <div className="text-6xl md:text-7xl font-black text-white leading-none">79%</div>
+              <div className="text-6xl md:text-7xl font-black text-white leading-none">75%</div>
             </div>
           </div>
         </div>

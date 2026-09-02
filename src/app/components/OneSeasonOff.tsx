@@ -28,7 +28,7 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
 
   const trustItems = [
     { icon: '🏷️', title: 'EXCLUSIVE TECH', sub: 'Big brands. Real savings.' },
-    { icon: '%',   title: 'UNBEATABLE PRICES', sub: 'Up to 79% off original retail.' },
+    { icon: '%',   title: 'UNBEATABLE PRICES', sub: 'Up to 75% off original retail.' },
     { icon: '⏱️', title: 'WHILE STOCKS LAST', sub: "Once it's gone, it's gone." },
   ];
 
@@ -46,8 +46,8 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
             <div className="relative flex flex-col justify-center py-5 shrink-0 overflow-hidden" style={{ width: 240 }}>
               {/* Ghost watermark */}
               <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-                <span className="font-black absolute" style={{ fontSize: '13rem', color: 'rgba(255,31,31,0.055)', right: '-2.5rem', top: '50%', transform: 'translateY(-50%)', letterSpacing: '-0.05em', lineHeight: 1 }}>79%</span>
-                <span className="font-black absolute" style={{ fontSize: '8rem', color: 'rgba(255,31,31,0.11)', right: '-0.5rem', top: '50%', transform: 'translateY(-44%) rotate(-7deg)', letterSpacing: '-0.05em', lineHeight: 1 }}>79%</span>
+                <span className="font-black absolute" style={{ fontSize: '13rem', color: 'rgba(255,31,31,0.055)', right: '-2.5rem', top: '50%', transform: 'translateY(-50%)', letterSpacing: '-0.05em', lineHeight: 1 }}>75%</span>
+                <span className="font-black absolute" style={{ fontSize: '8rem', color: 'rgba(255,31,31,0.11)', right: '-0.5rem', top: '50%', transform: 'translateY(-44%) rotate(-7deg)', letterSpacing: '-0.05em', lineHeight: 1 }}>75%</span>
               </div>
               <div className="relative z-10 flex flex-col gap-4">
                 <p className="text-xs font-black uppercase tracking-[0.25em] flex items-center gap-1.5" style={{ color: '#FF1F1F' }}>🔥 Clearance</p>
@@ -55,13 +55,13 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
                   <h2 className="font-black leading-none mb-2" style={{ fontSize: '2rem', color: '#111111' }}>One Season Off.</h2>
                   <p className="text-sm" style={{ color: '#6F6A63', lineHeight: 1.6 }}>Premium tech, legendary brands —<br />now at prices that shouldn't exist.</p>
                 </div>
-                {/* 79% + stamp */}
+                {/* 75% + stamp */}
                 <div className="flex items-center gap-2">
                   <div className="flex items-start gap-1 leading-none">
                     <div className="flex flex-col font-black uppercase" style={{ fontSize: '0.55rem', color: '#111111', lineHeight: 1.3, paddingTop: '0.5rem' }}>
                       <span>UP</span><span>TO</span>
                     </div>
-                    <span className="font-black" style={{ fontSize: '3rem', color: '#FF1F1F', lineHeight: 1 }}>79%</span>
+                    <span className="font-black" style={{ fontSize: '3rem', color: '#FF1F1F', lineHeight: 1 }}>75%</span>
                     <span className="font-black uppercase self-end" style={{ fontSize: '0.7rem', color: '#111111', paddingBottom: '0.3rem' }}>OFF</span>
                   </div>
                   <div className="flex-shrink-0 flex items-center justify-center rounded-full border-[3px]" style={{ width: 56, height: 56, borderColor: '#111111', transform: 'rotate(-10deg)' }}>
@@ -141,11 +141,11 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
             <h2 className="text-2xl font-black leading-tight" style={{ color: '#111111' }}>One Season Off.</h2>
             <p className="text-xs mt-0.5" style={{ color: '#6F6A63' }}>Premium tech at prices that shouldn't exist.</p>
           </div>
-          {/* Compact 79% badge */}
+          {/* Compact 75% badge */}
           <div className="shrink-0 ml-4 text-right">
             <div className="flex items-start justify-end gap-0.5 leading-none">
               <span className="font-black text-[0.5rem] uppercase mt-1" style={{ color: '#111111' }}>UP<br/>TO</span>
-              <span className="font-black" style={{ fontSize: '3rem', color: '#FF1F1F', lineHeight: 1 }}>79%</span>
+              <span className="font-black" style={{ fontSize: '3rem', color: '#FF1F1F', lineHeight: 1 }}>75%</span>
             </div>
             <div className="text-[0.5rem] font-black uppercase" style={{ color: '#111111' }}>OFF · LIMITED STOCK</div>
           </div>

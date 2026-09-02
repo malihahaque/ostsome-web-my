@@ -41,7 +41,7 @@ export function LaunchExclusive({ onSelectProduct, onViewAll }: Props) {
             </p>
           </div>
           <div className="hidden md:flex flex-col items-end text-right shrink-0 ml-6">
-            <span className="text-4xl font-black text-[#F16C10]">Up to 5%</span>
+            <span className="text-4xl font-black text-[#F16C10]">Up to 9%</span>
             <span className="text-xs text-neutral-400 uppercase tracking-widest">Early Bird Off</span>
             {onViewAll && (
               <button

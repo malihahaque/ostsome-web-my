@@ -52,7 +52,7 @@ export function LaunchExclusivePage({ onBack, onSelectProduct, onJoinFost }: Pro
             <div className="text-left md:text-right shrink-0">
               <div className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Early Bird Off</div>
               <div className="text-6xl md:text-7xl font-black text-[#F16C10] leading-none">Up to</div>
-              <div className="text-6xl md:text-7xl font-black text-white leading-none">5%</div>
+              <div className="text-6xl md:text-7xl font-black text-white leading-none">9%</div>
             </div>
           </div>
         </div>
