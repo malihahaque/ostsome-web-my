@@ -40,7 +40,7 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
       {/* ── DESKTOP (md+) ── */}
       <div className="hidden md:block">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-stretch gap-6" style={{ minHeight: homepageDeals.length > 3 ? 500 : 300 }}>
+          <div className="flex items-stretch gap-6" style={homepageDeals.length > 3 ? { minHeight: 500 } : undefined}>
 
             {/* LEFT */}
             <div className="relative flex flex-col justify-center py-5 shrink-0 overflow-hidden" style={{ width: 240 }}>
@@ -56,18 +56,18 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
                   <p className="text-sm" style={{ color: '#6F6A63', lineHeight: 1.6 }}>Premium tech, legendary brands —<br />now at prices that shouldn't exist.</p>
                 </div>
                 {/* 79% + stamp */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div className="flex items-start gap-1 leading-none">
-                    <div className="flex flex-col font-black uppercase" style={{ fontSize: '0.65rem', color: '#111111', lineHeight: 1.3, paddingTop: '0.7rem' }}>
+                    <div className="flex flex-col font-black uppercase" style={{ fontSize: '0.55rem', color: '#111111', lineHeight: 1.3, paddingTop: '0.5rem' }}>
                       <span>UP</span><span>TO</span>
                     </div>
-                    <span className="font-black" style={{ fontSize: '3.8rem', color: '#FF1F1F', lineHeight: 1 }}>79%</span>
-                    <span className="font-black uppercase self-end" style={{ fontSize: '0.85rem', color: '#111111', paddingBottom: '0.4rem' }}>OFF</span>
+                    <span className="font-black" style={{ fontSize: '3rem', color: '#FF1F1F', lineHeight: 1 }}>79%</span>
+                    <span className="font-black uppercase self-end" style={{ fontSize: '0.7rem', color: '#111111', paddingBottom: '0.3rem' }}>OFF</span>
                   </div>
-                  <div className="flex-shrink-0 flex items-center justify-center rounded-full border-[3px]" style={{ width: 76, height: 76, borderColor: '#111111', transform: 'rotate(-10deg)' }}>
+                  <div className="flex-shrink-0 flex items-center justify-center rounded-full border-[3px]" style={{ width: 56, height: 56, borderColor: '#111111', transform: 'rotate(-10deg)' }}>
                     <div className="text-center leading-snug">
-                      <div className="font-black uppercase" style={{ fontSize: '0.55rem', letterSpacing: '0.08em', color: '#111111' }}>LIMITED</div>
-                      <div className="font-black uppercase" style={{ fontSize: '0.55rem', letterSpacing: '0.08em', color: '#111111' }}>STOCK</div>
+                      <div className="font-black uppercase" style={{ fontSize: '0.45rem', letterSpacing: '0.06em', color: '#111111' }}>LIMITED</div>
+                      <div className="font-black uppercase" style={{ fontSize: '0.45rem', letterSpacing: '0.06em', color: '#111111' }}>STOCK</div>
                     </div>
                   </div>
                 </div>
@@ -80,18 +80,18 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
               </div>
             </div>
 
-            {/* RIGHT — 3×2 grid, fills full height */}
-            <div className="flex-1 py-5">
-              <div className="grid gap-3 h-full" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: `repeat(${Math.max(1, Math.ceil(homepageDeals.length / 3))}, 1fr)` }}>
+            {/* RIGHT — 3×2 grid, cards size to content */}
+            <div className="flex-1 py-5 flex items-center">
+              <div className="grid gap-3 w-full" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: `repeat(${Math.max(1, Math.ceil(homepageDeals.length / 3))}, auto)` }}>
                 {homepageDeals.map(({ deal, product }) => {
                   const pct = Math.round(((deal.srp - deal.promo) / deal.srp) * 100);
                   return (
-                    <div key={deal.handle} onClick={() => onSelectProduct?.(product)} className="bg-white rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group flex flex-row">
-                      <div className="relative bg-neutral-50 overflow-hidden shrink-0" style={{ width: '45%' }}>
-                        <img src={product.images[0]} alt={deal.name} className="w-full h-full object-contain p-3 group-hover:scale-105 transition duration-500" onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80'; }} />
+                    <div key={deal.handle} onClick={() => onSelectProduct?.(product)} className="bg-white rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group flex flex-row" style={{ height: 110 }}>
+                      <div className="relative bg-neutral-50 overflow-hidden shrink-0" style={{ width: '38%' }}>
+                        <img src={product.images[0]} alt={deal.name} className="w-full h-full object-contain p-2.5 group-hover:scale-105 transition duration-500" onError={e => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80'; }} />
                         <span className="absolute top-2 left-2 text-white font-black px-2.5 py-1 rounded-full" style={{ fontSize: '0.75rem', backgroundColor: '#FF1F1F' }}>-{pct}%</span>
                       </div>
-                      <div className="flex flex-col justify-center p-3 flex-1 min-w-0">
+                      <div className="flex flex-col justify-center p-2.5 flex-1 min-w-0">
                         <p className="font-bold uppercase tracking-widest mb-1 truncate" style={{ fontSize: '0.58rem', color: '#6F6A63' }}>{deal.label}</p>
                         <h3 className="font-bold line-clamp-2 mb-2 leading-snug" style={{ fontSize: '0.78rem', color: '#111111' }}>{deal.name}</h3>
                         {isFostMember ? (
