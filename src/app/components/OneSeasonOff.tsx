@@ -40,10 +40,10 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
       {/* ── DESKTOP (md+) ── */}
       <div className="hidden md:block">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-stretch gap-6" style={{ minHeight: 500 }}>
+          <div className="flex items-stretch gap-6" style={{ minHeight: homepageDeals.length > 3 ? 500 : 300 }}>
 
             {/* LEFT */}
-            <div className="relative flex flex-col justify-center py-5 shrink-0 overflow-hidden" style={{ width: 300 }}>
+            <div className="relative flex flex-col justify-center py-5 shrink-0 overflow-hidden" style={{ width: 240 }}>
               {/* Ghost watermark */}
               <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
                 <span className="font-black absolute" style={{ fontSize: '13rem', color: 'rgba(255,31,31,0.055)', right: '-2.5rem', top: '50%', transform: 'translateY(-50%)', letterSpacing: '-0.05em', lineHeight: 1 }}>79%</span>
@@ -52,7 +52,7 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
               <div className="relative z-10 flex flex-col gap-4">
                 <p className="text-xs font-black uppercase tracking-[0.25em] flex items-center gap-1.5" style={{ color: '#FF1F1F' }}>🔥 Clearance</p>
                 <div>
-                  <h2 className="font-black leading-none mb-2" style={{ fontSize: '2.4rem', color: '#111111' }}>One Season Off.</h2>
+                  <h2 className="font-black leading-none mb-2" style={{ fontSize: '2rem', color: '#111111' }}>One Season Off.</h2>
                   <p className="text-sm" style={{ color: '#6F6A63', lineHeight: 1.6 }}>Premium tech, legendary brands —<br />now at prices that shouldn't exist.</p>
                 </div>
                 {/* 79% + stamp */}
@@ -61,7 +61,7 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
                     <div className="flex flex-col font-black uppercase" style={{ fontSize: '0.65rem', color: '#111111', lineHeight: 1.3, paddingTop: '0.7rem' }}>
                       <span>UP</span><span>TO</span>
                     </div>
-                    <span className="font-black" style={{ fontSize: '4.5rem', color: '#FF1F1F', lineHeight: 1 }}>79%</span>
+                    <span className="font-black" style={{ fontSize: '3.8rem', color: '#FF1F1F', lineHeight: 1 }}>79%</span>
                     <span className="font-black uppercase self-end" style={{ fontSize: '0.85rem', color: '#111111', paddingBottom: '0.4rem' }}>OFF</span>
                   </div>
                   <div className="flex-shrink-0 flex items-center justify-center rounded-full border-[3px]" style={{ width: 76, height: 76, borderColor: '#111111', transform: 'rotate(-10deg)' }}>
@@ -82,7 +82,7 @@ export function OneSeasonOff({ onSelectProduct, onViewAll }: Props) {
 
             {/* RIGHT — 3×2 grid, fills full height */}
             <div className="flex-1 py-5">
-              <div className="grid gap-3 h-full" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: 'repeat(2, 1fr)' }}>
+              <div className="grid gap-3 h-full" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: `repeat(${Math.max(1, Math.ceil(homepageDeals.length / 3))}, 1fr)` }}>
                 {homepageDeals.map(({ deal, product }) => {
                   const pct = Math.round(((deal.srp - deal.promo) / deal.srp) * 100);
                   return (
