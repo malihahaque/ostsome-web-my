@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useCallback, useEffect } from 'rea
 import type { Product } from '../data/products';
 import { createCart, addToCart, removeFromCart, updateCartLine, getCart } from '../data/shopify';
 import { useAuth } from './AuthContext';
-import { FOST_DISCOUNT_CODE, getFostPrice } from '../data/pricing';
+import { getFostPrice } from '../data/pricing';
 import { isFlashSaleActiveNow, getFlashPriceForItem } from '../data/flashSale';
 
 export type CartItem = {
@@ -165,32 +165,21 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     setCheckoutLoading(true);
     try {
-      // If the cart contains a flash-sale item during the active window, we
-      // deliberately do NOT pass the FOST5 code. Both FOST5 and the Friday
-      // Flash Deal automatic discount have "combine with other product
-      // discounts" turned off in Shopify Admin — that's what stops them
-      // stacking on the SAME item. But if FOST5 is already applied to the
-      // cart as a code, Shopify may not swap it out for the larger
-      // automatic discount, since neither is allowed to combine. Skipping
-      // the code here gives the automatic (bigger) discount room to apply.
-      // Trade-off: any OTHER non-flash items in the same cart temporarily
-      // lose their 5% FOST discount too, for the duration of this one
-      // checkout — acceptable for a 1-hour window, but worth knowing.
-      const cartHasFlashItem = items.some(
-        i => getFlashPriceForItem(i.product.handle, i.selectedOption1) !== undefined
-      );
-      const skipFostCode = isFlashSaleActiveNow() && cartHasFlashItem;
-
-      // Create a Shopify cart with the first item. For FOST members, pass the
-      // FOST5 discount code so the 5% off is applied on Shopify's side too —
-      // this keeps what's shown on-site and what's actually charged in sync.
-      // (Requires a "FOST5" discount code to exist and be active in Shopify
-      // Admin → Discounts, set to 5% off all products.)
+      // FOST5 is now an automatic discount in Shopify Admin (scoped to the
+      // FOST Members customer segment), not a discount code — it applies on
+      // its own to any logged-in FOST member with no code needed. We
+      // deliberately do NOT pass a discount code into cart creation anymore.
+      // Standard Shopify checkout only supports one discount code slot at a
+      // time regardless of combination settings, so pre-loading a code here
+      // (even a currently-valid one) would block the customer from applying
+      // any other code — like a marketing promo — at checkout. Leaving
+      // discountCodes empty lets FOST5 apply automatically in the
+      // background while keeping that one code slot free for anything else.
       // Passing the customer's token here links the resulting order to their
       // Shopify account (see comment on createCart) — this is what makes
       // "My Orders" and status tracking work for logged-in FOST members.
       let cart = await createCart(
-        isFostMember && !skipFostCode ? [FOST_DISCOUNT_CODE] : undefined,
+        undefined,
         shopifyToken ?? undefined
       );
 
